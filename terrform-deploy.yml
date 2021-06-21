@@ -1,0 +1,22 @@
+---
+- name: playbook to deploy terrform
+  hosts: localhost
+  gather_facts: false 
+  vars_files:
+      - vars.yml
+  tasks:
+    - name: terraform plan
+      community.general.terraform:
+        force_init: yes
+        project_path: "/home/venkat/terraform"
+        plan_file: "/home/venkat/terraform/config/plan"
+        variables_file: "/home/venkat/terraform/config/variables.tfvars"
+        variables : 
+            "{{ aws_vars }}"
+        state: present
+      register: tfout
+      delegate_to: localhost
+    
+    - name: debug output
+      debug: 
+         var: tfout

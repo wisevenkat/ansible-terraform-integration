@@ -1,0 +1,6 @@
+aws_vars:
+    instance_type: t2.micro
+    ami_id:  ami-0800fc0fa715fdcfe
+    access_key: XXXXXXXXXXXXXXXXXXXXXXXXXXX
+    secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXX
+
